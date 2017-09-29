@@ -23,7 +23,7 @@ if (false) {
     var fn = co.wrap(function*(val) {
         return yield Promise.resolve(val);
     });
-
+    // 把generator里return的值传给promise的then回调里。    
     fn(true).then(function(val) {
         console.log(val);
     });
