@@ -83,7 +83,7 @@ if (false) {
 
 // 以下面的代码为例：co里面有一个generator g2
 // 如果使用yield，则后面既可以是生成器函数g2，也可以是遍历器对象g2()，在toPromise的环节，co会递归处理g2；
-// 如果使用yield*，则后面跟着的只能是遍历器对象g2，co会把g2里的yield展开，与当前co里的yield一起平行处理。
+// 如果使用yield*，则后面跟着的只能是遍历器对象g2，generator本身的特性会把yield*后面的g2里的yield展开，与当前co里的yield一起平行处理。
 if (false) {
     function* g2() {
         var a = yield Promise.resolve("g2-1");
