@@ -126,3 +126,19 @@ if (false) {
     }).catch(onerror);
 }
 
+if (true) {
+    co(function*() {
+        var a = yield Promise.resolve(1);
+        console.log(a);
+        try {
+            var b = yield Promise.reject(new Error("报错了"));
+        } catch (error) {
+            console.log(error)
+        }
+        console.log(b);
+        var c = yield Promise.resolve(3);
+        console.log(c);
+    }).catch((err)=>{
+        console.error(err);
+    });
+}
